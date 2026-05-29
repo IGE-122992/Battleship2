@@ -1,0 +1,30 @@
+{
+  "name": "Battleship Development Environment",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    // Configuração das extensões para quem usa Visual Studio Code
+    "vscode": {
+      "extensions": [
+        "ms-azuretools.vscode-docker",           // Docker
+        "github.vscode-github-actions",         // GitHub Actions
+        "yzhang.markdown-all-in-one",           // Markdown All in One
+        "mtxr.sqltools",                         // SQLTools
+        "mongodb.mongodb-vscode"                // MongoDB for VS Code
+      ]
+    },
+    // Configuração dos plugins para quem usa IntelliJ IDEA
+    "jetbrains": {
+      "plugins": [
+        "Docker",                                // Docker Plugin
+        "ru.yole.git4idea",                      // GitHub Plugin / Git integration
+        "com.intellij.database",                 // Database Tools and SQL
+        "org.intellij.plugins.markdown"          // Markdown Support
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  // Garante que o projeto compila automaticamente assim que o container é criado
+  "postCreateCommand": "mvn clean compile"
+}
